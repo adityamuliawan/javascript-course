@@ -1,6 +1,6 @@
 "use strict"; // Strict mode
 
-// Function
+//* Function
 /*
 function logger() {
   console.log("My name is Jonas");
@@ -24,7 +24,7 @@ const orangeJuice = fruitProcessor(5, 0);
 console.log(appleJuice);
 */
 
-// Function Declaration vs. Expression
+//* Function Declaration vs. Expression
 /*
 // Function declaration
 function calcAge1(birthYear) {
@@ -41,7 +41,7 @@ const age2 = calcAge2(1991);
 console.log(age1, age2);
 */
 
-// Arrow Function
+//* Arrow Function
 /*
 const calcAge3 = (birthYear) => 2037 - birthYear;
 const age3 = calcAge3(1991);
@@ -58,7 +58,7 @@ console.log(yearsUntilRetirement(1980, "Bob"));
 console.log(yearsUntilRetirement(2000, "Adit"));
 */
 
-// Function Calling Other Function
+//* Function Calling Other Function
 /*
 // Function 1
 function cutFruitPieces(fruit) {
@@ -77,7 +77,7 @@ function fruitProcessor(apples, oranges) {
 console.log(fruitProcessor(3, 3));
 */
 
-// Reviewing Function
+//* Reviewing Function
 /*
 const calcAge = function (birthYear) {
   return 2037 - birthYear;
@@ -101,7 +101,7 @@ console.log(yearsUntilRetirement(1991, "Jonas"));
 console.log(yearsUntilRetirement(1950, "Mike"));
 */
 
-// Codling Challenge #1
+//* Codling Challenge #1
 /*
 // 1
 const calcAverage = (x, y, z) => (x + y + z) / 3;
@@ -129,7 +129,7 @@ checkWinner(scoreDolphins1, scoreKoalas1);
 checkWinner(576, 111);
 */
 
-// Array
+//* Array
 /*
 const friend1 = "Michael";
 const friend2 = "Steven";
@@ -170,7 +170,7 @@ const ages = [
 console.log(ages);
 */
 
-// Array Methods
+//* Array Methods
 /*
 const friends = ["Michael", "Steven", "Peter"];
 
@@ -204,7 +204,7 @@ if (friends.includes("Steven")) {
 }
 */
 
-// Coding Challenge #2
+//* Coding Challenge #2
 /*
 // 1
 const calcTip = (bill) => {
@@ -236,3 +236,228 @@ const totals = [
 ];
 console.log(totals);
 */
+
+//* Objects
+/*
+// Array
+const jonasArray = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "Teacher",
+  ["Michael", "Peter", "Steven"],
+];
+
+// Objects
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+*/
+
+//* Dot vs. Bracket Notation
+/*
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+
+console.log(jonas.lastName);
+console.log(jonas["lastName"]);
+
+const nameKey = "Name";
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+const interestedIn = prompt(
+  "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
+);
+console.log(jonas[interestedIn]);
+
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstName, lastName, age, job, and friends"
+  );
+}
+
+jonas.location = "Portugal";
+jonas["twitter"] = "@jonasschmedtman";
+console.log(jonas);
+
+// Challenge
+console.log(
+  `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`
+);
+*/
+
+//* Object Methods
+/*
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  birthYear: 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+
+  // calcAge: function () {
+  //   // console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummery: function () {
+    return `${this.firstName} is a ${jonas.age}-year old teacher, and he has ${
+      this.hasDriversLicense ? "a" : "no"
+    } driver's license`;
+  },
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+
+// Challenge
+console.log(jonas.getSummery());
+*/
+
+//* Coding Challenge #3
+/*
+// 1 & 2
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+console.log(mark.calcBMI(), john.calcBMI());
+console.log(mark.bmi, john.bmi);
+
+// 3
+if (mark.bmi > john.bmi) {
+  console.log(`Mark's BMI (${mark.bmi}) is higher than John's (${john.bmi})!`);
+} else if (john.bmi > mark.bmi) {
+  console.log(`John's BMI (${john.bmi}) is higher than Mark's (${mark.bmi})!`);
+}
+*/
+
+//* For Loop
+/*
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep}`);
+}
+*/
+
+//* Looping Array, Breaking, and Continuing
+/*
+const jonasArray = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+const types = [];
+
+for (let i = 0; i < jonasArray.length; i++) {
+  console.log(jonasArray[i], typeof jonasArray[i]);
+
+  // Filling types array
+  // types[i] = typeof jonasArray[i];
+
+  types.push(typeof jonasArray[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[0]);
+}
+console.log(ages);
+
+// Continue and Break
+// Continue
+for (let i = 0; i < jonasArray.length; i++) {
+  if (typeof jonasArray[i] !== "string") continue; // Hanya menampilkan data string
+  console.log(jonasArray[i], typeof jonasArray[i]);
+}
+
+// Break
+for (let i = 0; i < jonasArray.length; i++) {
+  if (typeof jonasArray[i] === "number") break; // Selesai melakukan perulangan jika menemukan tipe data number
+  console.log(jonasArray[i], typeof jonasArray[i]);
+}
+*/
+
+//* Loops Backward and Loops in Loops
+/*
+// Loops backward
+const jonas = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+
+for (let i = jonas.length - 1; i >= 0; i--) {
+  console.log(i, jonas[i]);
+}
+
+// Loops in loops
+for (let excercise = 1; excercise < 4; excercise++) {
+  console.log("----- Starting Exercise " + excercise + "-----");
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${excercise}: Lifting weight repetition ${rep}`);
+  }
+}
+*/
+
+//* While Loop
+// For Loop
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep}`);
+}
+
+// While Loop
+let rep = 1;
+while (rep <= 10) {
+  console.log(`WHILE: Lifting weights repetition ${rep}`);
+  rep++;
+}
