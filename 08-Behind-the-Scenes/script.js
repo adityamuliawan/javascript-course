@@ -113,3 +113,7 @@ matilda.calcAge();
 const f = jonas.calcAge;
 f();
 */
+
+//* Reguler Functions vs. Arrow Functions
+
+//* Primitives vs. Objects (Reference Types)
