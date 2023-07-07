@@ -2,65 +2,67 @@
 
 //* Function
 /*
+//? Function adalah potongan kode yang dapat dipanggil berkali-kali
 function logger() {
-  console.log("My name is Jonas");
+  console.log("My name is Adit"); //? Isi di dalam kurung kurawal function bernama "Function Body"
 }
 
-// Calling/running/invoking function
+logger(); //? Baris ini berfungsi untuk memanggil function
 logger();
 
 function fruitProcessor(apples, oranges) {
   console.log(apples, oranges);
-  const juice = `Juice with  ${apples} apples and ${oranges} oranges.`;
-  return juice;
+  const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+  return juice; //? Keyword return berfungsi untuk menangkap value di dalam function agar dapat digunakan kembali, dan untuk menangkapnya perlu disimpan di dalam sebuah variabel
 }
 
-fruitProcessor(4, 5);
+fruitProcessor(5, 3); //? Value dalam parameter setelah function dipanggil disebut dengan "Argument"
 
-const appleJuice = fruitProcessor(5, 0);
+const appleJuice = fruitProcessor(3, 5); //? Menyimpan nilai return pada function fruitProcessor
 console.log(appleJuice);
 
-const orangeJuice = fruitProcessor(5, 0);
-console.log(appleJuice);
+const orangeJuice = fruitProcessor(2, 2);
+console.log(orangeJuice);
 */
 
 //* Function Declaration vs. Expression
 /*
-// Function declaration
+//? Di bawah ini disebut "Function Declaration"
 function calcAge1(birthYear) {
   return 2037 - birthYear;
 }
-const age1 = calcAge1(1991);
 
-// Function expression
+const age1 = calcAge1(2000);
+console.log(age1);
+
+//? Di bawah ini disebut "Function Expression"
 const calcAge2 = function (birthYear) {
   return 2037 - birthYear;
 };
-const age2 = calcAge2(1991);
 
-console.log(age1, age2);
+const age2 = calcAge2(2001);
+console.log(age2);
 */
 
 //* Arrow Function
 /*
-const calcAge3 = (birthYear) => 2037 - birthYear;
-const age3 = calcAge3(1991);
+const calcAge3 = (birthYear) => 2037 - birthYear; //? Arrow function tidak perlu kurung kurawal dan dapat me-return value secara langsung tanpa keyword return jika function hanya satu baris
+const age3 = calcAge3(2000);
 console.log(age3);
 
+//? Jika arrow function lebih dari satu baris maka kurung kurawal dan keyword return diperlukan
 const yearsUntilRetirement = (birthYear, firstName) => {
   const age = 2037 - birthYear;
-  const retirement = 65 - age;
-  return `${firstName} retires in ${retirement}`;
+  const retirement = 60 - age;
+  return `${firstName} retires in ${retirement} years`;
 };
-
-console.log(yearsUntilRetirement(1991, "Jonas"));
-console.log(yearsUntilRetirement(1980, "Bob"));
 console.log(yearsUntilRetirement(2000, "Adit"));
+console.log(yearsUntilRetirement(1999, "Siman"));
 */
 
 //* Function Calling Other Function
-/*
-// Function 1
+
+/* // Function 1
 function cutFruitPieces(fruit) {
   return fruit * 4;
 }
@@ -74,8 +76,7 @@ function fruitProcessor(apples, oranges) {
   return juice;
 }
 
-console.log(fruitProcessor(3, 3));
-*/
+console.log(fruitProcessor(3, 3)); */
 
 //* Reviewing Function
 /*
