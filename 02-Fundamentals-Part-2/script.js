@@ -18,7 +18,7 @@ function fruitProcessor(apples, oranges) {
 
 fruitProcessor(5, 3); //? Value dalam parameter setelah function dipanggil disebut dengan "Argument"
 
-const appleJuice = fruitProcessor(3, 5); //? Menyimpan nilai return pada function fruitProcessor
+const appleJuice = fruitProcessor(3, 5); //? Menyimpan value return pada function fruitProcessor
 console.log(appleJuice);
 
 const orangeJuice = fruitProcessor(2, 2);
@@ -61,22 +61,20 @@ console.log(yearsUntilRetirement(1999, "Siman"));
 */
 
 //* Function Calling Other Function
-
-/* // Function 1
+/*
 function cutFruitPieces(fruit) {
   return fruit * 4;
 }
 
-// Function 2
 function fruitProcessor(apples, oranges) {
   const applePieces = cutFruitPieces(apples);
   const orangePieces = cutFruitPieces(oranges);
 
-  const juice = `Juice with  ${applePieces} apples and ${orangePieces} oranges.`;
+  const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
   return juice;
 }
-
-console.log(fruitProcessor(3, 3)); */
+console.log(fruitProcessor(2, 4)); //? Tidak perlu menyimpan value return dalam variabel jika hanya menggunakan console.log
+*/
 
 //* Reviewing Function
 /*
@@ -92,71 +90,81 @@ const yearsUntilRetirement = function (birthYear, firstName) {
     console.log(`${firstName} retires in ${retirement} years`);
     return retirement;
   } else {
-    console.log(`${firstName} has already retired 🎉`);
+    console.log(`${firstName} has already retired`);
     return -1;
   }
-  // return `${firstName} retires in ${retirement} years`;
 };
 
-console.log(yearsUntilRetirement(1991, "Jonas"));
-console.log(yearsUntilRetirement(1950, "Mike"));
+console.log(yearsUntilRetirement(2000, "Adit"));
+console.log(yearsUntilRetirement(1950, "Sule"));
 */
 
 //* Codling Challenge #1
 /*
-// 1
+//TODO 1
 const calcAverage = (x, y, z) => (x + y + z) / 3;
 
-// 2
+//TODO 2
 const scoreDolphins = calcAverage(44, 23, 71);
 const scoreKoalas = calcAverage(65, 54, 49);
 
 const scoreDolphins1 = calcAverage(85, 54, 41);
 const scoreKoalas1 = calcAverage(23, 34, 27);
 
-// 3
-const checkWinner = (avgDolphins, avgKoalas) => {
+const scoreDolphins2 = calcAverage(23, 34, 30);
+const scoreKoalas2 = calcAverage(85, 54, 44);
+
+//TODO 3
+const checkWinner = function (avgDolphins, avgKoalas) {
   if (avgDolphins >= 2 * avgKoalas) {
     console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
   } else if (avgKoalas >= 2 * avgDolphins) {
     console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
   } else {
-    console.log(`No team wins!`);
+    console.log("No team wins...");
   }
 };
 
+//TODO 4
 checkWinner(scoreDolphins, scoreKoalas);
 checkWinner(scoreDolphins1, scoreKoalas1);
-checkWinner(576, 111);
+checkWinner(scoreDolphins2, scoreKoalas2);
 */
 
 //* Array
 /*
-const friend1 = "Michael";
-const friend2 = "Steven";
-const frined3 = "Peter";
+const friend1 = "Guntur";
+const friend2 = "Juli";
+const friend3 = "Andika";
 
-const friends = ["Michael", "Steven", "Peter"];
+//? Array merupkan salah satu "Data Structure". Array memiliki kemampuan untuk menampung data yang banyak
+const friends = ["Guntur", "Juli", "Andika"];
 console.log(friends);
 
-// const years = new Array(1991, 1984, 2008, 2020);
+//? Array dapat dipanggil menggunakan function Array(). Untuk memanggilnya diperlukan keyword new, apabila tidak maka kode tidak dapat dijalankan
+const year = new Array(1998, 1999, 2000, 2001);
 
-console.log(friends[0]);
+//? Untuk memanggil salah satu dari isi array, maka perlu memanggil namaArray[nomor urut value yang ingin dipanggil]
+console.log(friends[0]); //? Array berbasis 0(dimulai dari index 0)
 console.log(friends[2]);
 
-console.log(friends.length);
+//? Property length berfungsi untuk mehitung jumlah value dari sebuah array
+console.log(friends.length); //? Property length berbasis 1(dimulai dari index 1)
 console.log(friends[friends.length - 1]);
 
-friends[2] = "Jay";
+//? Value pada array masih dapat diubah meski array dideklarasikan menggunakan keyword const. Itu karena array merupakan tipe value non primitif
+friends[2] = "Sule";
 console.log(friends);
-// friends = ["Bob", "Alice"];
+// friends = ["Rika", "Sisi", "Sasha"]; //! Tidak dapat mengubah isi array dengan cara seperti ini
 
-const jonas = ["Jonas", "Schmedtmann", 2037 - 1991, "teacher", friends];
-console.log(jonas);
+const firstName = "Aditya";
+const adit = [firstName, "Muliawan", 2037 - 2000, "Freelancer", friends];
+console.log(adit);
+console.log(adit.length);
 
-// Array Exercise
+//TODO Latihan
 const calcAge = (birthYear) => 2037 - birthYear;
-const years = [1990, 1967, 2002, 2010, 2018];
+const years = [1998, 1999, 2000, 2001, 2002];
 
 const age1 = calcAge(years[0]);
 const age2 = calcAge(years[1]);
@@ -172,38 +180,36 @@ console.log(ages);
 */
 
 //* Array Methods
-/*
-const friends = ["Michael", "Steven", "Peter"];
 
-// Add element
-const newLength = friends.push("Jay");
-console.log(friends);
-console.log(newLength);
+const friends = ["Siman", "Tude", "Andika"];
 
-friends.unshift("John");
+//? Untuk menambahkan elemen baru ke array dapat menggunakan method push dan unsift
+friends.push("Yoga"); //? Method push akan menambahkan elemen baru dari belakang array
 console.log(friends);
 
-// Remove element
-friends.pop(); // Remove last element
-const popped = friends.pop();
-console.log(popped);
+friends.unshift("Alan"); //? Method unshift akan menambahkan elemen baru dari depan array
 console.log(friends);
 
-friends.shift(); // Remove first element
+//? Untuk mengeluarkan elemen dapat menggunakan method pop dan shift
+friends.pop(); //? Method pop akan mengeluarkan elemen dari belakang array
 console.log(friends);
 
-console.log(friends.indexOf("Steven"));
-console.log(friends.indexOf("Bob"));
+friends.shift(); //? Method shift akan mengeluarkan elemen dari depan array
+console.log(friends);
 
-friends.push(23);
-console.log(friends.includes("Steven"));
-console.log(friends.includes("Bob"));
-console.log(friends.includes(23));
+//? Untuk mengetahui posisi sebuah elemen berada dapat menggunakan method indexOf
+console.log(friends.indexOf("Siman"));
+console.log(friends.indexOf("Andika"));
 
-if (friends.includes("Steven")) {
-  console.log("You have a friend called Steven");
+//? Method includes berfungsi untuk me-return value true (jika elemen ada di dalam array) dan false jika sebaliknya
+console.log(friends.includes("Siman"));
+console.log(friends.includes("Dompol"));
+
+if (friends.includes("Siman")) {
+  console.log("You have friend called Siman");
+} else {
+  console.log("You don't have friend called Siman");
 }
-*/
 
 //* Coding Challenge #2
 /*
