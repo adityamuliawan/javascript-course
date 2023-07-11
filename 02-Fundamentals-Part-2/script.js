@@ -180,7 +180,7 @@ console.log(ages);
 */
 
 //* Array Methods
-
+/*
 const friends = ["Siman", "Tude", "Andika"];
 
 //? Untuk menambahkan elemen baru ke array dapat menggunakan method push dan unsift
@@ -210,149 +210,166 @@ if (friends.includes("Siman")) {
 } else {
   console.log("You don't have friend called Siman");
 }
+*/
 
 //* Coding Challenge #2
 /*
-// 1
-const calcTip = (bill) => {
+//TODO 1
+function calcTip(bill) {
   if (bill >= 50 && bill <= 300) {
     return (15 / 100) * bill;
   } else {
     return (20 / 100) * bill;
   }
-};
+}
 console.log(calcTip(100));
 
-// 2
+//TODO 2
 const bills = [125, 555, 44];
 console.log(bills);
 
-// 3
+//TODO 3
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 console.log(tips);
 
-// 4
-const totalBill = (bill, tip) => {
+//TODO 4
+function calcTotals(bill, tip) {
   return bill + tip;
-};
+}
 
 const totals = [
-  totalBill(bills[0], tips[0]),
-  totalBill(bills[1], tips[1]),
-  totalBill(bills[2], tips[2]),
+  calcTotals(bills[0], tips[0]),
+  calcTotals(bills[1], tips[1]),
+  calcTotals(bills[2], tips[2]),
 ];
 console.log(totals);
 */
 
-//* Objects
+//* Object
 /*
-// Array
-const jonasArray = [
-  "Jonas",
-  "Schmedtmann",
-  2037 - 1991,
-  "Teacher",
-  ["Michael", "Peter", "Steven"],
+//? Array
+const aditArray = [
+  "Aditya",
+  "Muliawan",
+  2037 - 2000,
+  "Freelancer",
+  ["Guntur", "Andika", "Juli"],
 ];
 
-// Objects
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schmedtmann",
-  age: 2037 - 1991,
-  job: "Teacher",
-  friends: ["Michael", "Peter", "Steven"],
+//? Object
+const adit = {
+  firstName: "Aditya", //? "firstName:" disebut "Key/Property". "Aditya" disebut "Property Value"
+  lastName: "Muliawan",
+  age: 2037 - 2000,
+  job: "Freelancer",
+  friends: ["Guntur", "Andika", "Juli"],
 };
 */
 
 //* Dot vs. Bracket Notation
 /*
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schmedtmann",
-  age: 2037 - 1991,
-  job: "Teacher",
-  friends: ["Michael", "Peter", "Steven"],
+const adit = {
+  firstName: "Aditya",
+  lastName: "Muliawan",
+  age: 2037 - 2000,
+  job: "Freelancer",
+  friends: ["Guntur", "Andika", "Juli"],
 };
 
-console.log(jonas.lastName);
-console.log(jonas["lastName"]);
+//? Untuk memanggil property dapat menggunakan notasi "." dan "[]". Bedanya, notasi "[]" dapat menampung expression
+console.log(adit.firstName); //? Baris ini berfungsi untuk memanggil property firstName dengan menggunakan notasi "."
+console.log(adit["firstName"]); //? Baris ini berfungsi untuk memanggil property firstName dengan menggunakan notasi "[]"
 
 const nameKey = "Name";
-console.log(jonas["first" + nameKey]);
-console.log(jonas["last" + nameKey]);
+console.log(adit[`first${nameKey}`]); //? Dapat diketahui penggunaan notasi "[]" dalam pemanggilan property memungkinkan untuk menampung expression
+console.log(adit[`last${nameKey}`]);
+
+// console.log(adit.'last' + nameKey); //! Tidak dapat menampung expression jika menggunakan notasi "."
 
 const interestedIn = prompt(
-  "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
+  "What do you want to know about Adit? Choose between firstName, lastName, age, job, and friends"
 );
-console.log(jonas[interestedIn]);
+console.log(adit[interestedIn]);
 
-if (jonas[interestedIn]) {
-  console.log(jonas[interestedIn]);
+//? Untuk mencegah munculnya value undefined dapat menggunakan if else statement
+if (adit[interestedIn]) {
+  console.log(adit[interestedIn]);
 } else {
   console.log(
     "Wrong request! Choose between firstName, lastName, age, job, and friends"
   );
 }
 
-jonas.location = "Portugal";
-jonas["twitter"] = "@jonasschmedtman";
-console.log(jonas);
+adit.location = "Indonesia"; //? Untuk menambahkan property baru menggunakan notasi "."
+adit["twitter"] = "adityamuliawan_"; //? Untuk menambahkan property baru menggunakan notasi "[]"
+console.log(adit);
 
-// Challenge
+//TODO Latihan
 console.log(
-  `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`
+  `${adit.firstName} has ${adit.friends.length} friends, and his best friend is called ${adit.friends[0]}`
 );
 */
 
 //* Object Methods
 /*
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schmedtmann",
-  birthYear: 1991,
-  job: "Teacher",
-  friends: ["Michael", "Peter", "Steven"],
+const adit = {
+  firstName: "Aditya",
+  lastName: "Muliawan",
+  birthYear: 2000,
+  job: "Freelancer",
+  friends: ["Guntur", "Andika", "Juli"],
   hasDriversLicense: true,
 
+  //? Function yang berada di dalam object disebut dengan "Method", dan method hanya dapat menggunakan function expression
   // calcAge: function (birthYear) {
   //   return 2037 - birthYear;
   // },
 
+  //? Untuk mengakses semua property pada object ke method dapat menggunakan variabel special "this"
   // calcAge: function () {
-  //   // console.log(this);
-  //   return 2037 - this.birthYear;
+  //   console.log(this); //? Variabel/Keyword this akan memanggil semua object property dan methodnya
+  //   return 2037 - this.birthYear; //? this.birthYear akan memanggil property birthYear pada object adit
+  //   return 2037 - adit.birthYear; //! Dapat memanggil property dengan cara seperti ini tapi akan mengalami error jika mengganti nama objectnya dan juga melanggar prinsip clean code (DRY)
   // },
 
   calcAge: function () {
-    this.age = 2037 - this.birthYear;
+    this.age = 2037 - this.birthYear; //? Cara untuk membuat property baru melalui method
     return this.age;
   },
 
-  getSummery: function () {
-    return `${this.firstName} is a ${jonas.age}-year old teacher, and he has ${
-      this.hasDriversLicense ? "a" : "no"
-    } driver's license`;
+  //TODO Latihan
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
   },
 };
 
-console.log(jonas.calcAge());
-console.log(jonas.age);
+//? birthYear sudah didefinisikan pada object, jadi lebih baik untuk mengaksesnya melalui method untuk membuat kode lebih clean
+// console.log(adit.calcAge(2000));
+// console.log(adit["calcAge"](2000));
 
-// Challenge
-console.log(jonas.getSummery());
+console.log(adit.calcAge());
+
+//? Mengakses property baru yang telah dibuat melalui method
+console.log(adit.age);
+console.log(adit.age);
+console.log(adit.age);
+
+//TODO Latihan
+console.log(adit.getSummary());
 */
 
 //* Coding Challenge #3
 /*
-// 1 & 2
+//TODO 1 & 2
 const mark = {
   fullName: "Mark Miller",
   mass: 78,
   height: 1.69,
 
   calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
+    this.bmi = this.mass / (this.height * this.height);
     return this.bmi;
   },
 };
@@ -363,19 +380,24 @@ const john = {
   height: 1.95,
 
   calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
+    this.bmi = this.mass / (this.height * this.height);
     return this.bmi;
   },
 };
 
-console.log(mark.calcBMI(), john.calcBMI());
+mark.calcBMI();
+john.calcBMI();
 console.log(mark.bmi, john.bmi);
 
-// 3
+//TODO 3
 if (mark.bmi > john.bmi) {
-  console.log(`Mark's BMI (${mark.bmi}) is higher than John's (${john.bmi})!`);
-} else if (john.bmi > mark.bmi) {
-  console.log(`John's BMI (${john.bmi}) is higher than Mark's (${mark.bmi})!`);
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+  );
+} else {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+  );
 }
 */
 
