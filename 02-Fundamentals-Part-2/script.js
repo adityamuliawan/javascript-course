@@ -403,54 +403,40 @@ if (mark.bmi > john.bmi) {
 
 //* For Loop
 /*
+//? For loop akan tetap mengeksekusi selama kondisi bernilai true
 for (let rep = 1; rep <= 10; rep++) {
-  console.log(`Lifting weights repetition ${rep}`);
+  console.log(`Lifting weights repetition ${rep}`); //? Kode ini akan ditampilkan selama sepuluh kali
 }
 */
 
-//* Looping Array, Breaking, and Continuing
+//! Looping Array, Breaking, and Continuing
 /*
-const jonasArray = [
-  "Jonas",
-  "Schmedtmann",
-  2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
+const aditArray = [
+  "Aditya",
+  "Muliawan",
+  2037 - 2000,
+  "Freelancer",
+  ["Guntur", "Andika", "Juli"],
   true,
 ];
 
 const types = [];
 
-for (let i = 0; i < jonasArray.length; i++) {
-  console.log(jonasArray[i], typeof jonasArray[i]);
-
-  // Filling types array
-  // types[i] = typeof jonasArray[i];
-
-  types.push(typeof jonasArray[i]);
+//? Menampilkan semua elemen array aditArray dan mengisi array types dari array aditArray dengan for loop
+for (let i = 0; i < aditArray.length; i++) {
+  console.log(aditArray[i], typeof aditArray[i]); //? typeof berfungsi untuk mengetahui tipe data pada array
+  types.push(aditArray[i]); //? Mengisi elemen dari array aditArray ke array types
 }
+
 console.log(types);
 
 const years = [1991, 2007, 1969, 2020];
 const ages = [];
 
 for (let i = 0; i < years.length; i++) {
-  ages.push(2037 - years[0]);
+  ages.push(2037 - years[i]);
 }
 console.log(ages);
-
-// Continue and Break
-// Continue
-for (let i = 0; i < jonasArray.length; i++) {
-  if (typeof jonasArray[i] !== "string") continue; // Hanya menampilkan data string
-  console.log(jonasArray[i], typeof jonasArray[i]);
-}
-
-// Break
-for (let i = 0; i < jonasArray.length; i++) {
-  if (typeof jonasArray[i] === "number") break; // Selesai melakukan perulangan jika menemukan tipe data number
-  console.log(jonasArray[i], typeof jonasArray[i]);
-}
 */
 
 //* Loops Backward and Loops in Loops
